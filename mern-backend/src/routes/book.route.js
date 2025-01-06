@@ -7,7 +7,7 @@ router.post("/upload-books", async (req, res) => {
   try {
     const data = req.body;
     const result = await bookModel.create(data);
-    res.status(201).json({ status: "Success", data: result });
+    res.status(200).json({ status: "Success", data: result });
   } catch (e) {
     console.log("Failed to upload book!", e);
     res.status(500).json({ status: "Error", message: "Failed to upload book" });
@@ -45,7 +45,7 @@ router.patch('/update-books/:id', async (req, res) => {
         const id = req.params.id;
         const reqBody = req.body;
         const result = await bookModel.findByIdAndUpdate(id, reqBody, {upsert: true}, {new:true});
-        res.status(201).json({status: "Success", data: result});
+        res.status(200).json({status: "Success", data: result});
     }catch (e) {
         console.log("Failed to update book!", e);
         res.status(500).json({status: "Error", message: "Failed to update book!", e});
