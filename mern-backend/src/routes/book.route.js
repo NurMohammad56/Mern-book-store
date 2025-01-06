@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bookModel = require("../model/bookModel");
 
-// Create
+// Upload a book
 router.post("/upload-books", async (req, res) => {
   try {
     const data = req.body;
@@ -14,7 +14,7 @@ router.post("/upload-books", async (req, res) => {
   }
 });
 
-// Read
+// Get all book
 router.get("/all-books", async (req, res) => {
     try {
       const result = await bookModel.find()
@@ -23,6 +23,19 @@ router.get("/all-books", async (req, res) => {
     }catch (e) {
       console.log("Failed to getting book!", e);
       res.status(500).json({status: "Error", message: "Failed to getting books"});
+    }
+})
+
+// Update a book
+router.patch('/update-books/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const reqBody = req.body;
+        const result = await bookModel.findByIdAndUpdate(id, reqBody, {upsert: true}, {new:true});
+        res.status(201).json({status: "Success", data: result});
+    }catch (e) {
+        console.log("Failed to update book!", e);
+        res.status(500).json({status: "Error", message: "Failed to update book!", e});
     }
 })
 
