@@ -51,7 +51,10 @@ const Navbar = () => {
                         }
                     </ul>
 
-
+                {/*btn for lg devices*/}
+                    <div className="spacex-12 hidden lg:flex items-center">
+                        <button> <FaBarsStaggered className="w-5"/>  </button>
+                    </div>
                 </div>
             </nav>
         </header>
