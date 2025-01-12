@@ -1,10 +1,13 @@
+import {Outlet} from "react-router-dom";
+import Navbar from "./component/Navbar.jsx";
 
 function App() {
 
 
   return (
     <>
-      <div className='flex items-center justify-center h-screen text-3xl text-red-950 font-bold'>Hello React</div>
+        <Navbar/>
+      <Outlet/>
     </>
   )
 }
