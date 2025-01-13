@@ -38,8 +38,8 @@ const Navbar = () => {
     ]
     return (
         <header className="w-full bg-transparent fixed top-0 left-0 right-0 transition-all ease-in duration-300">
-            <nav>
-                <div>
+            <nav className={`py-4 lg:px-24 px-4 ${isSticky ? "sticky top-0 left-0 right-0 bg-blue-200 " : ""}`}>
+                <div className='flex justify-between items-center text-base gap-8'>
                 {/*Logo*/}
                     <Link to='/' className="text-2xl font-bold text-textColor flex items-center gap-2"><FaBook className="inline-block"/>Books</Link>
 
@@ -69,9 +69,9 @@ const Navbar = () => {
                 </div>
 
             {/*Nav items for sm devices*/}
-                <div className={`space-y-4 px-4 mt-14 py-7 bg-textColor ${isOpen ? "block fixed top-0 right-0 left-0" : "hidden"}`}>
+                <div className={`space-y-4 px-4 mt-14 py-7 bg-green-300 ${isOpen ? "block fixed top-0 right-0 left-0" : "hidden"}`}>
                     {
-                        navItems.map(({link, path}) => <Link to={path} key={path} className="uppercase cursor-pointer text-white block text-base ">
+                        navItems.map(({link, path}) => <Link to={path} key={path} className="uppercase cursor-pointer text-black block text-base ">
                             {link}
                         </Link>)
                     }
