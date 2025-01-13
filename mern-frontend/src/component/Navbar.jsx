@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
-import { FaBook } from "react-icons/fa";
+import {FaBook} from "react-icons/fa";
 import {FaBarsStaggered} from "react-icons/fa6";
+import {FaXmark} from "react-icons/fa6";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -55,7 +56,19 @@ const Navbar = () => {
                     <div className="spacex-12 hidden lg:flex items-center">
                         <button> <FaBarsStaggered className="w-5"/>  </button>
                     </div>
+
+                {/*menu button for the mobile devices*/}
+                    <div className="md:hidden">
+                        <button onClick={toggleMenu} className="text-black focus:outline-none">
+                            {
+                                isOpen ? <FaXmark className="h-5 w-5 text-black"/> : <FaBarsStaggered className="h-5 w-5 text-black"/>
+                            }
+                        </button>
+                    </div>
+
                 </div>
+
+            {/*Nav items for sm devices*/}
             </nav>
         </header>
     );
