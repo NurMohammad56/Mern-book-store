@@ -37,14 +37,14 @@ const Navbar = () => {
         {link: "Blog", path:"/blog"},
     ]
     return (
-        <header>
+        <header className="w-full bg-transparent fixed top-0 left-0 right-0 transition-all ease-in duration-300">
             <nav>
                 <div>
                 {/*Logo*/}
                     <Link to='/' className="text-2xl font-bold text-textColor flex items-center gap-2"><FaBook className="inline-block"/>Books</Link>
 
                 {/*Nav items for large device*/}
-                    <ul className="md:flex space-x-12">
+                    <ul className="md:flex space-x-12 hidden">
                         {
                             navItems.map(({link, path}) => <Link to={path} key={path} className="uppercase cursor-pointer hover:text-textColor block text-base text-black">
                                 {link}
@@ -54,7 +54,7 @@ const Navbar = () => {
 
                 {/*btn for lg devices*/}
                     <div className="spacex-12 hidden lg:flex items-center">
-                        <button> <FaBarsStaggered className="w-5"/>  </button>
+                        <button> <FaBarsStaggered className="w-5 hover:text-textColor"/>  </button>
                     </div>
 
                 {/*menu button for the mobile devices*/}
@@ -69,6 +69,13 @@ const Navbar = () => {
                 </div>
 
             {/*Nav items for sm devices*/}
+                <div className={`space-y-4 px-4 mt-14 py-7 bg-textColor ${isOpen ? "block fixed top-0 right-0 left-0" : "hidden"}`}>
+                    {
+                        navItems.map(({link, path}) => <Link to={path} key={path} className="uppercase cursor-pointer text-white block text-base ">
+                            {link}
+                        </Link>)
+                    }
+                </div>
             </nav>
         </header>
     );
