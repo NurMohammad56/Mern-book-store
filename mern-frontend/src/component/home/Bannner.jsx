@@ -5,7 +5,7 @@ import Slider from "./Slider.jsx";
 
 const Banner = () => {
     return (
-        <div className="px-4 lg:px-24 bg-green-200 items-center">
+        <div className="px-4 lg:px-24 bg-green-200 items-center ">
             <div className='flex flex-col md:flex-row justify-between w-full items-center gap-12 py-32'>
             {/*Left side*/}
                 <div className={`md:w-1/2 space-y-7 h-full`}>
@@ -17,7 +17,7 @@ const Banner = () => {
                     <button className={`bg-textColor px-6 py-2 text-white font-medium hover:bg-black transition-all ease-in duration-300`}>খুজুন</button>
                 </div>
                 </div>
-                
+
 
             {/*Right side*/}
                 <div>

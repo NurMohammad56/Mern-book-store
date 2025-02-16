@@ -16,7 +16,7 @@ import image8 from "../../assets/images/book-image/9.webp"
 import { EffectCards } from 'swiper/modules';
 const Slider = () => {
     return (
-        <div>
+        <div className={`relative z-10`}>
             <Swiper
                 effect={'cards'}
                 grabCursor={true}

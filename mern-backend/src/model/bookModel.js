@@ -14,7 +14,7 @@ const bookSchema = new mongoose.Schema(
     category: {
       type: String,
       required: true,
-      enum: ["Fiction", "Non-Fiction", "Science", "Biography", "Other"],
+      enum: ["Fiction", "Non-Fiction", "Islamic", "Science", "Biography", "Other"],
     },
     bookDescription: {
       type: String,
