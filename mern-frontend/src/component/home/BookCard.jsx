@@ -15,6 +15,8 @@ import {Link} from "react-router-dom";
 
 const BookCard = ({books, headline}) => {
 
+    // const backendBaseUrl = 'http://localhost:5000/api/v1';
+
     return (
         <div className={`my-14 px-4 lg:px-24`}>
             <h2 className={`text-4xl text-center font-bold my-4 `}>{headline}</h2>
@@ -48,7 +50,7 @@ const BookCard = ({books, headline}) => {
 
                     {books.map(book => (
                         <SwiperSlide key={book._id}>
-                            <Link to="/">
+                            <Link to={`/books/${book._id}`}>
                                 <div className={`relative`}>
                                     <img src={book.imageUrl} alt={book.title}/>
 
