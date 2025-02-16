@@ -38,6 +38,22 @@ router.get("/all-books", async (req, res) => {
     }
 });
 
+// Get single book
+router.get("/:id", async (req, res) => {
+    try {
+        let id = req.params.id;
+
+        let result = await bookModel.findById(id);
+
+        if (!result) {
+            return res.status(404).json({ status: "Error", message: "No book found with this ID" });
+        }
+
+        res.status(200).json({ status: "Success", data: result });
+    } catch (error) {
+        res.status(500).json({ status: "Error", message: "Internal Server Error", error: error.message });
+    }
+});
 
 // Update a book
 router.patch('/update-books/:id', async (req, res) => {
